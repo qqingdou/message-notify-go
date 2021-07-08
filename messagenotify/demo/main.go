@@ -1,13 +1,13 @@
 package main
 
 import (
-	"message-notify-go/messagenotify"
+	"github.com/qqingdou/message-notify-go/messagenotify"
 )
 
 func main()  {
 
 	//you project id and company key
-	messagenotify.NewMessageNotify(1, "xxxxxx")
+	messagenotify.NewMessageNotify(1, "3d19a744dcf06a48fb591f73af20dfc6")
 
 	//Auto Catch Exception
 	defer messagenotify.AutoCatchException()
