@@ -7,26 +7,23 @@ import (
 func main()  {
 
 	//you project id and company key
-	messagenotify.NewMessageNotify(1, "3d19a744dcf06a48fb591f73af20dfc6")
+	messageNotifyInstance	:=	messagenotify.NewMessageNotify(1, "xxxx")
+
+	messageBody	:=	messagenotify.MessageBody{}
+	messageBody.SetTile("first error")
+	messageBody.SetMessage("first error")
+	messageBody.SetType(1)
+
+	messageNotifyInstance.AddMessage(messageBody).Push()
+
+	messageBody2	:=	messagenotify.MessageBody{}
+	messageBody2.SetTile("second error")
+	messageBody2.SetMessage("second error")
+	messageBody2.SetType(1)
+	messagenotify.GetInstance().AddMessage(messageBody2).Push()
 
 	//Auto Catch Exception
 	defer messagenotify.AutoCatchException()
 
-	yy	:=	0
-	t	:=	1 / yy
-
-	println(t)
-
-	messageBody	:=	messagenotify.MessageBody{}
-	messageBody.SetTile("test")
-	messageBody.SetMessage("test2")
-	messageBody.SetType(1)
-
-	messagenotify.GetInstance().AddMessage(messageBody).Push()
-
-	messageBody2	:=	messagenotify.MessageBody{}
-	messageBody2.SetTile("test")
-	messageBody2.SetMessage("test3")
-	messageBody2.SetType(1)
-	messagenotify.GetInstance().AddMessage(messageBody2).Push()
+	panic("Hello World, I'm a error.")
 }
